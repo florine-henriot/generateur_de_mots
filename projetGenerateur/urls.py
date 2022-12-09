@@ -19,6 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accueil/', views.afficherAccueil),
+    path('', views.afficherAccueil, name='retourAccueil'),
     path('generateur/', views.accessGenerator, name='rediriger')
 ]

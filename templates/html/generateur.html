@@ -19,7 +19,81 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
-    <body>
-        
+    <body style="background-color:#212529;">
+        <!--Choix des options-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <br><br>
+                    <h1 class="text-white mt-0">Générateur de mots</h1>
+                    <hr class="divider divider-light"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 text-center">
+                    <br>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <!--Choix de la langue-->
+                        <h5 class="text-white mb-4">Choisis la langue</h5>
+                        <input type="checkbox" id="en" name="en">
+                        <label class="text-white-75" for="en">Anglais</label>
+                        <br>
+                        <input type="checkbox" id="fr" name="fr" disabled>
+                        <label class="text-white-75" for="fr">Français</label>
+                        <br><br>
+                        <!--Choix de la catégorie grammaticale-->
+                        <h5 class="text-white mb-4">Choisis la catégorie grammaticale</h5>
+                        <input type="checkbox" id="noun" name="noun">
+                        <label class="text-white-75" for="noun">Noms</label>
+                        <br>
+                        <input type="checkbox" id="vb" name="vb" disabled>
+                        <label class="text-white-75" for="vb">Verbes</label>
+                        <br>
+                        <input type="checkbox" id="adj" name="adj" disabled>
+                        <label class="text-white-75" for="adj">Adjectifs</label>
+                        <br><br>
+                        <!--Choix du nombre de mots-->
+                        <h5 class="text-white mb-4">Choisis le nombre de mots</h5>
+                        <input type="number" step="10" name="nbMot" placeholder="Nombre de mots">
+                        <br><br>
+                        <!--Choix de la taille des mots-->
+                        <h5 class="text-white mb-4">Choisis la taille des mots</h5>
+                        <input type="number" step="1" name="sizeMot" placeholder="Taille des mots">
+                        <br><br>
+                        <button class="btn btn-light btn-xl" type="submit">Générer</button>
+                    </form>
+                </div>
+                <div class="col-8 border border-white text-center text-white" style="background-color:#343a40;">
+                    <!--Afficher ici les mots inventés-->
+                    <br>
+                    <h3 class="text-white mb-4">Mots générés</h3>
+                    <hr class="divider divider-light"/>
+                    <h5><span class="badge">test</span>
+                    Test test test test test test test test test test test test test 
+                    test test test test tets test test test test test test test test</h5>
+                    <br><br>
+                    <!--Retourner à l'accueil-->
+                    <form action="{% url 'retourAccueil' %}">
+                        <input type="submit" class="btn btn-light btn-xl" value="Retour à l'accueil">
+                    </form>
+                </div>
+            </div>
+             <!-- Footer-->
+            <footer class="bg-dark py-5">
+                <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Florine Henriot</div></div>
+            </footer>
+            <!-- Bootstrap core JS-->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- SimpleLightbox plugin JS-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+            <!-- Core theme JS-->
+            <script src="{% static 'js/scripts.js' %}"></script>
+            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+            <!-- * *                               SB Forms JS                               * *-->
+            <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+            <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        </div>
     </body>
 </html>
