@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Générer des mots</title>
+        <title>Générateur de mot</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
         <!-- Bootstrap Icons-->
@@ -24,11 +24,11 @@
         <!--Bar de navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Générateur de mots</a>
+                <a class="navbar-brand" href="#page-top">Accueil</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#fonctionnement">Fonctionnement</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#presentation">Présentation du projet</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,20 +44,39 @@
                     <div class="col-lg-8 align-self-baseline">
                         <h5 class="text-white font-weight-bold">Tu veux inventer une langue qui ressemble à l'anglais ou au français ? Besoin d'inspiration pour créer ton lexique ? Tu es au bon endroit !</h5>
                         <br>
-                        <a class="btn btn-primary btn-xl" href="#fonctionnement">Fonctionnement</a>
+                        <a class="btn btn-primary btn-xl" href="#presentation">Présentation du projet</a>
                     </div>
                 </div>
             </div>
         </header>
         <!--Le fonctionnement du générateur-->
-        <section class="page-section" id="fonctionnement">
+        <section class="page-section" id="presentation">
             <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">Comment ça marche ?</h2>
+                <h2 class="text-center mt-0">Présentation du projet</h2>
                 <hr class="divider"/>
-                <p class="text-center">Ce générateur a été réalisé dans le cadre d'un mémoire de Master en Traitement Automatique des Langues / NLP.
-                Nous avons étudié la langue française et la langue anglaise pour pouvoir générer des mots qui ressemblent 
-                à une de ces deux langues.</p>
+                <p class="text-center">
+                    Ce générateur a été réalisé dans le cadre d'un mémoire de Master en Traitement Automatique des Langues / NLP.
+                    Nous avons étudié la langue française et la langue anglaise pour pouvoir générer des mots qui ressemblent 
+                    à une de ces deux langues.
+                </p>
                 <br>
+                <p class="text-center">
+                    Avec les chaînes de Markov, nous avons calculé la probabilité qu'une séquence de consonnes soit suivie d'une 
+                    séquence de voyelles, et vice versa.
+                    Nous avons réalisé un DataFrame avec ces données. Avec ces probabilités, nous pouvons générer des mots avec
+                    toutes les séquences de lettres possibles. 
+                </p>
+                <br>
+                <p class="text-center">
+                    Les mots générés sont basés sur des mots qui viennent de langues naturelles. Pour l'instant, notre projet n'est
+                    fonctionnel que pour les noms communs anglais. Ce sont donc les deux seules options disponibles. Nous espérons 
+                    pouvoir aussi proposer les autres options prochainement.
+                </p>
+                <br>
+                <p class="text-center">
+                    Pour utiliser le générateur, vous n'avez qu'à choisir la langue à laquelle les mots ressemblent, la catégorie
+                    grammaticale et le nombre de mots que vous voulez.
+                </p>
                 <h4 class="text-center mt-0"></h4>
                 <hr class="divider"/>
             </div>

@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
+#les views du projet (p)
+from . import views as p
+#les views de l'application generateur
+from generateur import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.afficherAccueil, name='retourAccueil'),
-    path('generateur/', views.accessGenerator, name='rediriger')
+    path('admin/', admin.site.urls),#interface admin
+    path('', p.afficherAccueil, name='retourAccueil'),#accéder à la page d'accueil
+    path('generateur/', p.accessGenerator, name='rediriger'),#accéder à la page du générateur
+    path('resultGenerateur/', views.afficherMot, name='afficherMot')#accéder à la page des résultats
 ]

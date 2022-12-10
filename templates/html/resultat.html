@@ -31,21 +31,18 @@
             </div>
             <div class="row">
                 <div class="col-4 text-center">
+                    <br>
                     <form action="{% url 'afficherMot' %} "method="POST">
                         {% csrf_token %}
-                        <br>
-                        {%for mess in message%}
-                            <p class="text-white" style="background-color:black;">{{mess}}</p>
-                        {%endfor%}
                         <!--Choix de la langue-->
                         <h5 class="text-white mb-4">Choisis la langue</h5>
-                        <label class="text-white-75" for="lang1"><input type="checkbox" name="langue" value="en" id="lang1"> Anglais</label>
+                        <label class="text-white-75" for="lang1"><input type="checkbox" name="langue" value="en" id="lang1"disabled> Anglais</label>
                         <br>
                         <label class="text-white-75" for="lang2"><input type="checkbox" name="langue" value="fr" id="lang2" disabled> Français</label>
                         <br><br>
                         <!--Choix de la catégorie grammaticale-->
                         <h5 class="text-white mb-4">Choisis la catégorie grammaticale</h5>
-                        <label class="text-white-75" for="cat1"><input type="checkbox" name="cat" value="noun" id="cat1"> Noms</label>
+                        <label class="text-white-75" for="cat1"><input type="checkbox" name="cat" value="noun" id="cat1" disabled> Noms</label>
                         <br>
                         <label class="text-white-75" for="cat2"><input type="checkbox" name="cat" value="vb" id="cat2" disabled> Verbes</label>
                         <br>
@@ -53,16 +50,25 @@
                         <br><br>
                         <!--Choix du nombre de mots-->
                         <h5 class="text-white mb-4">Choisis le nombre de mots</h5>
-                        <input type="number" step="10" name="nbMot" placeholder="Nombre de mots">
+                        <input type="number" step="10" name="nbMot" placeholder="Nombre de mots" disabled>
                         <br><br>
-                        <button class="btn btn-light btn-xl" type="submit">Générer</button>
                     </form>
                 </div>
                 <div class="col-8 border border-white text-center text-white" style="background-color:#343a40;">
-                    <!--Emplacement des mots générés-->
+                    <!--Afficher ici les mots inventés-->
                     <br>
                     <h3 class="text-white mb-4">Mots générés</h3>
                     <hr class="divider divider-light"/>
+                    <h5>
+                        {%for element in resultat%}
+                            <span class="badge">{{element}}</span>
+                        {%endfor%}
+                    </h5>
+                    <br><br>
+                    <p>Pour générer d'autres mots, clique sur "Recommencer".</p>
+                    <form action="{% url 'rediriger' %}">
+                        <button class="btn btn-light btn-xl" type="submit">Recommencer</button>
+                    </form>
                     <br><br>
                     <!--Retourner à l'accueil-->
                     <form action="{% url 'retourAccueil' %}">
